@@ -12,3 +12,8 @@ fPath = r'file.txt'
 with open(fPath,'r') as f:
     fContent = f.readlines()
 ```
+
+reverse a string:
+```python
+"Hello World!"[::-1]
+```
