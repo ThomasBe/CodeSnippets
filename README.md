@@ -4,6 +4,8 @@ format number into hexadecimal representation with padding zero to have a nice o
 ```python
 print ("ID: 0x{:0>2x}".format((123))) # '0' padding with zeros, '>' right align, 'x' hexadecimal
 ```
+see also: https://realpython.com/python-formatted-output/
+
 some file handling:
 ```python
 fPath = r'file.txt'
