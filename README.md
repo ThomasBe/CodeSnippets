@@ -17,3 +17,11 @@ reverse a string:
 ```python
 "Hello World!"[::-1]
 ```
+
+## Powershell
+startMe.bat:
+
+starts the powershell and directly jumps into a defined directory
+```cmd
+powershell.exe -noexit -command "cd d:\temp"
+```
