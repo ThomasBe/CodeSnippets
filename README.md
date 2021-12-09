@@ -25,3 +25,10 @@ starts the powershell and directly jumps into a defined directory
 ```cmd
 powershell.exe -noexit -command "cd d:\temp"
 ```
+
+shorten the command prompt via profile settings
+
+(e.g. C:\Users\username\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+```cmd
+function prompt {'PS ' + $(Get-Location | Split-Path -Leaf) + ">"}
+```
