@@ -17,7 +17,11 @@ reverse a string:
 ```python
 "Hello World!"[::-1]
 ```
-
+### other
+let start powershell in the right python environment:
+```
+conda init powershell
+```
 ## Powershell
 startMe.bat:
 
