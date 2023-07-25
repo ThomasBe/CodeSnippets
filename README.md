@@ -36,6 +36,32 @@ shorten the command prompt via profile settings
 ```cmd
 function prompt {'PS ' + $(Get-Location | Split-Path -Leaf) + ">"}
 ```
+
+
+```cmd
+# adapt/modify the directories for National Instruments applications/drivers for additional exmaples and documentation
+# the default path: "C:\Users\Public\Documents\National Instruments"
+
+# draft
+
+$newPath = "C:\Program Files (x86)\National Instruments\Shared\Documents\"
+
+# not sure, if it has to be created in advance:
+New-Item -ItemType Directory -Path $newPath
+
+# parameters/pathes before/now:
+Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\National Instruments\Common\Installer" -Name NIPUBDOCSDIR
+Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\National Instruments\Common\Installer" -Name NIPUBDOCSDIR
+
+
+# set new pathes:
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\National Instruments\Common\Installer" -Name NIPUBDOCSDIR -Value $newpath
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\National Instruments\Common\Installer" -Name NIPUBDOCSDIR -Value $newpath
+
+# check:
+Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\National Instruments\Common\Installer" -Name NIPUBDOCSDIR
+Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\National Instruments\Common\Installer" -Name NIPUBDOCSDIR
+```
 ## ESP
 ```c
 #include <Arduino.h>
