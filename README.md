@@ -62,6 +62,25 @@ Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\National Instrumen
 Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\National Instruments\Common\Installer" -Name NIPUBDOCSDIR
 Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\National Instruments\Common\Installer" -Name NIPUBDOCSDIR
 ```
+```cmd
+# -----------------------------------------
+function Get-LargestFile {
+	 param (
+	 [Parameter(Mandatory=$true)]
+	 [string]$Path
+	 )
+	
+	 $largestFile = Get-ChildItem -Path $Path -File | Sort-Object -Property Length -Descending | Select-Object -First 1
+	
+	 return $largestFile
+}
+# use:
+$largestFile = Get-LargestFile -Path "C:\Pfad\zum\Verzeichnis"
+```
+
+
+
+
 ## ESP
 ```c
 #include <Arduino.h>
